@@ -58,6 +58,17 @@ public class MyLinkedList {
         }
     }
 
+    public void extend(MyLinkedList other) {
+        tail.next = other.head;
+        other.head.prev = tail;
+        tail = other.tail;
+        size += other.size;
+
+        other.head = null;
+        other.tail = null;
+        other.size = 0;
+    }
+
     private Node getNode(int index) {
         if (index < size / 2) {
             Node curr = head;
