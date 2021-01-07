@@ -46,6 +46,18 @@ public class MyLinkedList {
         return true;
     }
 
+    public void add(int index, String value) {
+        if (index < 0 || index > size) {
+            throw new IndexOutOfBoundsException("cannot add at index " + index + " for list of size " + size);
+        }
+        if (index == size) add(value);
+        else {
+            Node insertBefore = getNode(index);
+            new Node(insertBefore.prev, value, insertBefore);
+        }
+        size++;
+    }
+
     private Node getNode(int index) {
         if (index < size / 2) {
             Node curr = head;
