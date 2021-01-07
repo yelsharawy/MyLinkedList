@@ -94,10 +94,12 @@ public class MyLinkedList {
     public String toString() {
         StringBuilder output = new StringBuilder("[");
 
-        if (size > 0) output.append(head.data);
+        if (size > 0) {
+            output.append(head.data);
 
-        for (Node curr = head.next; curr != null; curr = curr.next) {
-            output.append(", ").append(curr.data);
+            for (Node curr = head.next; curr != null; curr = curr.next) {
+                output.append(", ").append(curr.data);
+            }
         }
 
         return output.append(']').toString();
@@ -106,10 +108,12 @@ public class MyLinkedList {
     public String toStringReversed() {
         StringBuilder output = new StringBuilder("[");
 
-        if (size > 0) output.append(tail.data);
+        if (size > 0) {
+            output.append(tail.data);
 
-        for (Node curr = tail.prev; curr != null; curr = curr.prev) {
-            output.append(", ").append(curr.data);
+            for (Node curr = tail.prev; curr != null; curr = curr.prev) {
+                output.append(", ").append(curr.data);
+            }
         }
 
         return output.append(']').toString();
