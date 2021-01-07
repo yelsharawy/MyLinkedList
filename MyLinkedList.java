@@ -75,10 +75,16 @@ public class MyLinkedList {
     }
 
     public String get(int index) {
+        if (index < 0 || index >= size) {
+            throw new IndexOutOfBoundsException("cannot get element at index " + index + " for list of size " + size);
+        }
         return getNode(index).data;
     }
 
     public String set(int index, String value) {
+        if (index < 0 || index >= size) {
+            throw new IndexOutOfBoundsException("cannot set element at index " + index + " for list of size " + size);
+        }
         Node node = getNode(index);
         String oldValue = node.data;
         node.data = value;
