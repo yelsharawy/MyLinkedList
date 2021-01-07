@@ -27,4 +27,14 @@ public class MyLinkedList {
         return size;
     }
 
+    public boolean add(String value) {
+        if (size == 0) {
+            head = tail = new Node(value);
+        } else {
+            tail = tail.next = new Node(tail, value);
+        }
+        size++;
+        return true;
+    }
+
 }
