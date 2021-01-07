@@ -37,4 +37,16 @@ public class MyLinkedList {
         return true;
     }
 
+    public String toString() {
+        StringBuilder output = new StringBuilder("[");
+
+        if (size > 0) output.append(head.data);
+
+        for (Node curr = head.next; curr != null; curr = curr.next) {
+            output.append(", ").append(curr.data);
+        }
+
+        return output.append(']').toString();
+    }
+
 }
