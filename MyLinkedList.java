@@ -8,4 +8,8 @@ public class MyLinkedList {
     private Node head = null, tail = null;
     private int size = 0;
 
+    public int size() {
+        return size;
+    }
+
 }
