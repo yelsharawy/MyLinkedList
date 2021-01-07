@@ -74,6 +74,17 @@ public class MyLinkedList {
         }
     }
 
+    public String get(int index) {
+        return getNode(index).data;
+    }
+
+    public String set(int index, String value) {
+        Node node = getNode(index);
+        String oldValue = node.data;
+        node.data = value;
+        return oldValue;
+    }
+
     public String toString() {
         StringBuilder output = new StringBuilder("[");
 
