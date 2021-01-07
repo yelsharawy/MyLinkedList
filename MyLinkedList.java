@@ -1,6 +1,7 @@
 public class MyLinkedList {
 
     private class Node {
+
         private Node prev = null, next = null;
         private String data;
 
@@ -10,12 +11,18 @@ public class MyLinkedList {
 
         private Node(Node prev, String value) {
             this(value);
-            this.prev = prev;
+            if (prev != null) {
+                this.prev = prev;
+                prev.next = this;
+            }
         }
 
         private Node(Node prev, String value, Node next) {
             this(prev, value);
-            this.next = next;
+            if (next != null) {
+                this.next = next;
+                next.prev = this;
+            }
         }
 
     }
@@ -31,7 +38,7 @@ public class MyLinkedList {
         if (size == 0) {
             head = tail = new Node(value);
         } else {
-            tail = tail.next = new Node(tail, value);
+            tail = new Node(tail, value);
         }
         size++;
         return true;
