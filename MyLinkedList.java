@@ -102,6 +102,28 @@ public class MyLinkedList {
         return oldValue;
     }
 
+    public String remove(int index) {
+        if (index < 0 || index >= size) {
+            throw new IndexOutOfBoundsException("cannot remove element at index " + index + " for list of size " + size);
+        }
+        Node toRemove = getNode(index);
+
+        if (toRemove == head) {
+            head = toRemove.next;
+        } else {
+            toRemove.prev.next = toRemove.next;
+        }
+
+        if (toRemove == tail) {
+            tail = toRemove.prev;
+        } else {
+            toRemove.next.prev = toRemove.prev;
+        }
+
+        size--;
+        return toRemove.data;
+    }
+
     public String toString() {
         StringBuilder output = new StringBuilder("[");
 
