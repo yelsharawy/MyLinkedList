@@ -54,8 +54,8 @@ public class MyLinkedList {
         else {
             Node insertBefore = getNode(index);
             new Node(insertBefore.prev, value, insertBefore);
+            size++;
         }
-        size++;
     }
 
     private Node getNode(int index) {
@@ -97,6 +97,18 @@ public class MyLinkedList {
         if (size > 0) output.append(head.data);
 
         for (Node curr = head.next; curr != null; curr = curr.next) {
+            output.append(", ").append(curr.data);
+        }
+
+        return output.append(']').toString();
+    }
+
+    public String toStringReversed() {
+        StringBuilder output = new StringBuilder("[");
+
+        if (size > 0) output.append(tail.data);
+
+        for (Node curr = tail.prev; curr != null; curr = curr.prev) {
             output.append(", ").append(curr.data);
         }
 
