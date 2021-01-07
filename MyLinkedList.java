@@ -37,6 +37,22 @@ public class MyLinkedList {
         return true;
     }
 
+    private Node getNode(int index) {
+        if (index < size / 2) {
+            Node curr = head;
+            for (int i = 0; i < index; i++) {
+                curr = curr.next;
+            }
+            return curr;
+        } else {
+            Node curr = tail;
+            for (int i = size-1; i > index; i--) {
+                curr = curr.prev;
+            }
+            return curr;
+        }
+    }
+
     public String toString() {
         StringBuilder output = new StringBuilder("[");
 
