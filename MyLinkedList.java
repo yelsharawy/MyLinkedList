@@ -15,6 +15,7 @@ public class MyLinkedList {
                 this.prev = prev;
                 prev.next = this;
             }
+            if (prev == tail) tail = this;
         }
 
         private Node(Node prev, String value, Node next) {
@@ -23,6 +24,11 @@ public class MyLinkedList {
                 this.next = next;
                 next.prev = this;
             }
+            if (next == head) head = this;
+        }
+
+        public String toString() {
+            return "Node("+data+")";
         }
 
     }
@@ -35,11 +41,7 @@ public class MyLinkedList {
     }
 
     public boolean add(String value) {
-        if (size == 0) {
-            head = tail = new Node(value);
-        } else {
-            tail = new Node(tail, value);
-        }
+        new Node(tail, value, null);
         size++;
         return true;
     }
