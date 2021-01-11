@@ -59,10 +59,16 @@ public class MyLinkedList {
     }
 
     public void extend(MyLinkedList other) {
-        tail.next = other.head;
-        other.head.prev = tail;
-        tail = other.tail;
-        size += other.size;
+        if (size == 0) {
+            head = other.head;
+            tail = other.tail;
+            size = other.size;
+        } else if (other.size != 0) {
+            tail.next = other.head;
+            other.head.prev = tail;
+            tail = other.tail;
+            size += other.size;
+        }
 
         other.head = null;
         other.tail = null;
